@@ -2,7 +2,6 @@ var browserify = require("browserify");
 var sourcemaps = require("gulp-sourcemaps");
 var source = require("vinyl-source-stream");
 var buffer = require("vinyl-buffer");
-var rename = require("gulp-rename");
 
 var watchify = require("watchify");
 var babelify = require("babelify");
@@ -16,16 +15,7 @@ var BUILD_FILES = [{
         dev: "application.js",
         prod: "application.min.js"
     }
-}, {
-    input: "libs.js",
-    rebundleOnChange: true,
-    output: {
-        dev: "libs.js",
-        prod: "libs.min.js"
-    }
 }];
-
-// https://gist.github.com/danharper/3ca2273125f500429945
 
 function compile(gulp, buildFile, destFileName) {
     var filePath = process.cwd() + "/client/" + buildFile.input;

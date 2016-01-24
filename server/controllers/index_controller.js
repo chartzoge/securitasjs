@@ -4,7 +4,7 @@ class IndexController {
     constructor () {}
 
     get (req, res) {
-        res.render("main.hbs");
+        res.render("pages/main");
     }
 }
 

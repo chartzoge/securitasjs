@@ -4,9 +4,9 @@ import handlebars from "handlebars";
 import expressHandlebars from "express-handlebars";
 
 export const setupViews = app => {
-    var viewsDirectory = "./server/views/layouts/";
-    var layoutsDirectory = "./server/views/layouts/";
-    var partialsDirectory = "./server/views/pages/";
+    var viewsDirectory = process.cwd() + "/server/views"
+    var layoutsDirectory = process.cwd() + "/server/views/layouts";
+    var partialsDirectory = process.cwd() + "/server/views/pages";
 
     app.set("views", viewsDirectory);
     app.set("view engine", "hbs");

@@ -24,7 +24,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "npm run start-server-watch && npm run build-client",
-    "start-server-watch": "nodemon --exec 'npm run start-server' ./**/*.js",
+    "start-server-watch": "nodemon --exec 'npm run start-server' ./server/**/*.js",
     "start-server": "babel-node server.js",
     "build-client": "gulp client:browserify"
   },
