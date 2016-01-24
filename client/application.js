@@ -1,1 +1,1 @@
-require("./components/comment_box");
+console.log("Hello World!");

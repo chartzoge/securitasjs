@@ -10,16 +10,20 @@
     "express": "^4.13.4",
     "express-handlebars": "^2.0.1",
     "handlebars": "^4.0.5",
+    "lodash": "^4.0.0",
     "react": "^0.14.6",
     "react-dom": "^0.14.6"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-browserify": "^0.5.1"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "npm run build-client && npm run start-server-watch",
-    "start-server-watch": "nodemon --exec 'babel-node server.js' ./**/*.js",
+    "start-server-watch": "nodemon --exec 'npm run start-server' ./**/*.js",
     "start-server": "babel-node server.js",
-    "build-client": "browserify -t [ babelify --presets [ react ] ] client/application.js -o public/js/application.js"
+    "build-client": "gulp client:browserify"
   },
   "author": "Chase Hartzoge",
   "license": "ISC"
