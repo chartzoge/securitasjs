@@ -1,5 +1,10 @@
 var browserify = require("gulp-browserify");
+var sourcemaps = require("gulp-sourcemaps");
 var rename = require("gulp-rename");
+
+var watchify = require("watchify");
+var babelify = require("babelify");
+
 var _ = require("lodash");
 
 var BUILD_FILES = [{
@@ -16,19 +21,17 @@ var BUILD_FILES = [{
     }
 }];
 
+// https://gist.github.com/danharper/3ca2273125f500429945
+
+function compile(shouldWatch, buildFile) {
+}
+
 module.exports = function (gulp, config) {
 
     gulp.task("client:browserify", function () {
         _.each(BUILD_FILES, (buildFile) => {
             var outputFileName = config.isDev ? buildFile.output.dev : buildFile.output.prod;
 
-            gulp.src(process.cwd() + "/client/" + buildFile.input)
-            .pipe(browserify({
-                insertGlobals: true,
-                debug: config.isDev
-            }))
-            .pipe(rename(outputFileName))
-            .pipe(gulp.dest(process.cwd() + "/public/js/"));
-        });
+
     });
 }
