@@ -1,1 +1,2 @@
-# -securitasjs
+# securitasjs
+*Security made simple*
