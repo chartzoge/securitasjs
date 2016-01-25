@@ -1,3 +1,5 @@
+"use strict";
+
 var React = require("react");
 
 // tutorial4.js
@@ -16,10 +18,17 @@ var Comment = React.createClass({
 
 var CommentList = React.createClass({
     render: function() {
+        var commentNodes = this.props.data.map(function (comment) {
+            return (
+                <Comment author={comment.author} key={comment.id}>
+                    {comment.text}
+                </Comment>
+            );
+        });
+
         return (
             <div className="commentList">
-                <Comment author="Pete Hunt">This is one comment</Comment>
-                <Comment author="Jordan Walke">This is *another* comment</Comment>
+                {commentNodes}
             </div>
         );
     }
@@ -37,13 +46,18 @@ var CommentForm = React.createClass({
 
 // tutorial1.js
 export const CommentBox = React.createClass({
-  render: function() {
-    return (
-      <div className="commentBox">
-            <h1>Comments</h1>
-            <CommentList />
-            <CommentForm />
-      </div>
-    );
-  }
+    getInitialState: function () {
+        return {
+            data: []
+        }
+    },
+    render: function() {
+        return (
+            <div className="commentBox">
+                <h1>Comments</h1>
+                <CommentList data={this.state.data}/>
+                <CommentForm />
+            </div>
+        );
+    }
 });
